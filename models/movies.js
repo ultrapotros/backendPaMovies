@@ -1,5 +1,12 @@
 const data = require('../dataMoviesComplete.json');
+const credits = require('../dataCastCrew.json');
 class Movies {
+getMovieCredits(id) {
+    let cast = credits.cast.map (field => [{ adult:field.adult,id: field.id,name: field.name}]);
+    let crew = credits.crew.map (field => [{ adult:field.adult,id: field.id,name: field.name, department: field.department}]);
+    let preciseData = {id: credits.id, cast, crew};
+    return preciseData;
+}
 getSimilar(id) {
     let movieWanted = data.filter((movie)=> movie.genre_ids.includes(parseInt(id)));
     let preciseData = movieWanted.map((movie)=>[{poster_path:movie.poster_path},{
@@ -71,4 +78,4 @@ module.exports = Movies;
         origin_country:"US"
         }
         ]} */
-    /* let newArray = data.results.map((member)=> Object.assign(member,country,companies)); */
+ /*    let newArray = data.results.map((member)=> Object.assign(member,country,companies)); */

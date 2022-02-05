@@ -1,4 +1,5 @@
 const data = require('../dataBirthdays.json');
+const crew = require('../dataPersonCrew.json');
 class Person {
 getBirthdays() {
     let aleatoryArray = [];
@@ -13,14 +14,9 @@ getBirthdays() {
     birthdays.map((member)=> results.push({profile_path: member.profile_path, name: member.name, dob: member.dob}))
     return results;
 }
-getNextMovies(){
-    data.sort(function (a, b){
-        return (b.release_date - a.release_date)
-    })
-    let nextMovies = data.filter(((member,index)=> index < 20));
-    let nextMoviesData = [];
-    nextMovies.map((member)=> nextMoviesData.push({poster_path: member.poster_path, release_date: member.release_date, title: member.title}))
-    return (nextMoviesData);
+getCrew(){
+    let preciseData = crew.crew.map (field => [{ adult:field.adult,id: field.id,name: field.name, department: field.department, poster_path:field.poster_path, release_date: field.release_date,title: field.title}]);
+    return preciseData;
 }
 getDetails(id){
     let person = data.filter(((member)=> member.celebId === id));
