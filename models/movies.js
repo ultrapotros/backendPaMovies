@@ -1,5 +1,17 @@
 const data = require('../dataMoviesComplete.json');
 class Movies {
+getSimilar(id) {
+    let movieWanted = data.filter((movie)=> movie.genre_ids.includes(parseInt(id)));
+    let preciseData = movieWanted.map((movie)=>[{poster_path:movie.poster_path},{
+        original_title: movie.original_title}, {adult:movie.adult}, {release_date: movie.release_date}, {id: movie.id}]) ;
+    return (preciseData); 
+}
+getMoviesByGenre(id) {
+    let movieWanted = data.filter((movie)=> movie.genre_ids.includes(parseInt(id)));
+    let preciseData = movieWanted.map((movie)=>[{poster_path:movie.poster_path},{
+        original_title: movie.original_title}]) ;
+    return (preciseData);
+}
 getMovieList(string) {
     let movieList = [];
     data.map((movie)=> movie.title.includes(string)? 
@@ -19,10 +31,10 @@ getNextMovies(){
 }
 getMovieDetails(id){
     let movieWanted = data.filter(((member)=> member.id === parseInt(id)));
-/*     let preciseData = [movieWanted[0].adult,movieWanted[0].title,movieWanted[0].poster_path,
-        movieWanted[0].overview,movieWanted[0].production_companies,movieWanted[0].adult,movieWanted[0].video,
-        movieWanted[0].release_date,movieWanted[0].production_countries] ; */
-    return (movieWanted);
+    let preciseData = [{adult:movieWanted[0].adult},{title:movieWanted[0].title},{poster_path:movieWanted[0].poster_path},{
+        overview: movieWanted[0].overview},{production_companies: movieWanted[0].production_companies},{video: movieWanted[0].video},{
+        release_date: movieWanted[0].release_date},{production_countries: movieWanted[0].production_countries}] ;
+    return (preciseData);
     }
 }
 module.exports = Movies;
