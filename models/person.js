@@ -19,10 +19,9 @@ getCrew(){
     return preciseData;
 }
 getDetails(id){
-    let person = data.filter(((member)=> member.celebId === id));
-    console.log(person);
-    let preciseData = [{name:person[0].name},{biography:person[0].biography},{profile_path: person[0].profile_path},{
-        birthday: person[0].dob},{place_of_birth: person[0].place_of_birth}] ;
+    let person = data.find(((member)=> member.celebId === id));
+    let preciseData = [{name:person.name},{biography:person.biography},{profile_path: person.profile_path},{
+        birthday: person.dob},{place_of_birth: person.place_of_birth}] ;
     return (preciseData);
     }
 }

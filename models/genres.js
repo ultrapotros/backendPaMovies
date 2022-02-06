@@ -1,6 +1,6 @@
 const data = require('../dataGenres.json');
 class Genres {
-getGenresList() {
+getList() {
     return data;
 }
 }
