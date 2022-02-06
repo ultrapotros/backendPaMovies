@@ -1,4 +1,3 @@
-const data = require('../../dataMoviesComplete.json');
 const Movies = require('../../models/movies.js')
 function getSearch(req, res){
     let movies = new Movies ();

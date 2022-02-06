@@ -1,4 +1,3 @@
-const data = require('../../dataNews.json');
 const News = require('../../models/news.js')
 function getNews(req, res){
     let news = new News ();

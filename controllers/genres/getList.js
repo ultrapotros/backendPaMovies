@@ -1,4 +1,3 @@
-const data = require('../../dataGenres.json');
 const Genres = require('../../models/genres.js')
 function getList(req, res){
     let genres = new Genres ();
