@@ -45,10 +45,9 @@ getMovieDetails(id){
     return (preciseData);
     }
     else {
-        return;
+        return [];
     }
     }
-
 }
 module.exports = Movies;
 
