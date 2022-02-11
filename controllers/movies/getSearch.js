@@ -1,5 +1,5 @@
 const Movies = require('../../models/movies.js');
-const checkData= require('../../middlewares/checkData');
+const checkData= require('../../helpers/checkData');
 function getSearch(req, res){
     let movies = new Movies ();
     let result = movies.getSearch (req.params.string);
